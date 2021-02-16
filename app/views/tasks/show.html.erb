@@ -1,8 +1,10 @@
 <% task = Task.find(params[:id]) %>
 
-<h1><%= task.title %></h1>
-<h3><%= task.details %></h3>
+<h1 class='text-center'><%= task.title %></h1>
+<h3 class='text-center'><%= task.details %></h3>
 
-<%= link_to 'Editar tarefa', edit_task_path %>
-<br><%= link_to 'Voltar a tarefas', tasks_path %>
-<%= link_to 'Deletar tarefa', delete_path(task), method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="d-flex justify-content-center mt-5">
+  <%= link_to 'Editar tarefa', edit_task_path, :class => "text-decoration-none pr-3 btn btn-primary" %>
+  <br><%= link_to '', tasks_path, :class => "fas fa-undo-alt text-decoration-none ml-3 mr-3 pt-3" %>
+  <%= link_to '', delete_path(task), method: :delete, data: { confirm: 'Are you sure?' }, :class => "fas fa-trash-alt pt-3" %>
+</div>

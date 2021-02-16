@@ -1,7 +1,29 @@
-<%= render 'form', task: @task %>
+<%= form_for (@task) do |t| %>
+  <div class="container total">
+    <div class="container-input-title d-flex justify-content-between my-3">
+      <div class="title-label mr-3">
+        <%= t.label :Tarefa %>
+      </div>
+      <div class="input-data">
+        <%= t.text_field :title %>
+      </div>
+    </div>
 
-<% if @task.completed == true %>
-  Desmarcar tarefa como feita<input type="checkbox" checked>
-<% else %>
-  Marcar tarefa como feita<input type="checkbox">
+    <div class="container-input-details d-flex justify-content-between">
+      <div class="details-label">
+        <%= t.label :Detalhe %>
+      </div>
+      <div class="details-input">
+        <%= t.text_field :details %>
+      </div>
+    </div>
+    <div class="check-completed d-flex justify-content-center align-items-center my-3">
+      <% unless t.object.new_record? %>
+        <%= t.check_box :completed, class: "mr-3" %> completed 
+      <% end %>
+    </div>
+    <div class="enviar d-flex justify-content-center">
+      <%= t.submit class: "btn btn-primary" %>
+    </div>
+  </div>  
 <% end %>

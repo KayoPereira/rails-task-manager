@@ -1,7 +1,28 @@
-<%= form_for (@task) do |t| %>
-  <%= t.label :title %>
-  <%= t.text_field :title %>
-  <%= t.label :details %>
-  <%= t.text_field :details %>
-  <%= t.submit %>
+<%= form_for(task) do |t| %>
+  <div class="container-input-title d-flex justify-content-between">
+    <div class="title-label">
+      <%= t.label :Tarefa %>
+    </div>
+    <div class="input-data">
+      <%= t.text_field :title %>
+    </div>
+  </div>
+  <br>
+  <div class="container-input-title d-flex justify-content-between">
+    <div class="details-label">
+      <%= t.label :Detalhe %>
+    </div>
+    <div class="input-data">
+      <%= t.text_field :details %>
+    </div>
+
+    <% unless t.object.new_record? %>
+      <%= t.check_box :completed %> completed
+    <% end %>
+    
+  </div>
+  <br>
+  <div class="d-flex justify-content-center">
+    <%= t.submit class: "btn btn-primary "%>
+  </div>
 <% end %>
