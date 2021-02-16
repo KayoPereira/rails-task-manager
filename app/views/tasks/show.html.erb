@@ -1,0 +1,8 @@
+<% task = Task.find(params[:id]) %>
+
+<h1><%= task.title %></h1>
+<h3><%= task.details %></h3>
+
+<%= link_to 'Editar tarefa', edit_task_path %>
+<br><%= link_to 'Voltar a tarefas', tasks_path %>
+<%= link_to 'Deletar tarefa', delete_path(task), method: :delete, data: { confirm: 'Are you sure?' } %>

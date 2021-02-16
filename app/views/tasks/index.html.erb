@@ -1,0 +1,15 @@
+<% @tasks.each do |task| %>
+  <ul>
+    <li>
+      <% if task.completed == false %>
+        <input type="checkbox" id="check"> | 
+      <% else %>
+        <input type="checkbox" id="check" checked> | 
+      <% end %>
+      <%= link_to task.title, task_path(task) %> | 
+      <%= link_to 'excluir', delete_path(task), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  </ul>
+<% end  %>
+
+<%= link_to 'Criar nova tarefa', new_task_path %>

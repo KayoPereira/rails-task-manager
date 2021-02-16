@@ -1,0 +1,7 @@
+<%= render 'form', task: @task %>
+
+<% if @task.completed == true %>
+  Desmarcar tarefa como feita<input type="checkbox" checked>
+<% else %>
+  Marcar tarefa como feita<input type="checkbox">
+<% end %>
